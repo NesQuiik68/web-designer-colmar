@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.js": "/webdesigner68-portfolio/static/js/main.f6865d8e.js",
-    "index.html": "/webdesigner68-portfolio/index.html"
+    "main.js": "/static/js/main.20e14b2c.js",
+    "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/js/main.f6865d8e.js"
+    "static/js/main.20e14b2c.js"
   ]
 }

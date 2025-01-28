@@ -14,7 +14,7 @@ on:
         type: string
 
 env:
-  DEPLOYMENT_FOLDER: public
+  DEPLOYMENT_FOLDER: build
 
 jobs:
 # Please do not rename this job
@@ -30,14 +30,14 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: v22.x
+          node-version: 18
 
       - name: Build Node assets
         env:
           CI: true
           SITE_URL: ${{ inputs.site-url }}
         run: |
-          npm ci
+          npm install
           npm run build
 
 # Please do not touch the following action
