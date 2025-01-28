@@ -1,6 +1,6 @@
 {
-  "name": "webdesigner68",
-  "version": "0.1.0",
+  "name": "web-designer-colmar",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@dotlottie/react-player": "^1.6.19",
@@ -40,7 +40,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -62,6 +64,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@types/styled-components": "^5.1.26"
+    "@types/styled-components": "^5.1.26",
+    "gh-pages": "^6.3.0"
   }
 }
