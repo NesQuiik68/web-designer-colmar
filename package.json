@@ -7,7 +7,12 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy:ionos": "npm run build && ionos-deploy"
+    "predeploy:gh-pages": "npm run set:gh-pages && npm run build",
+    "deploy:gh-pages": "gh-pages -d build",
+    "predeploy:ionos": "npm run set:ionos && npm run build",
+    "deploy:ionos": "ionos-deploy",
+    "set:gh-pages": "node scripts/setDeployTarget.js gh-pages",
+    "set:ionos": "node scripts/setDeployTarget.js ionos"
   },
   "dependencies": {
     "@dotlottie/react-player": "^1.6.19",
@@ -63,6 +68,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@types/styled-components": "^5.1.26"
+    "@types/styled-components": "^5.1.26",
+    "gh-pages": "^6.3.0"
   }
 }
