@@ -2,14 +2,11 @@
   "name": "web-designer-colmar",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://nesquiik68.github.io/web-designer-colmar",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "deploy:ionos": "npm run build && ionos-deploy"
   },
   "dependencies": {
@@ -66,7 +63,6 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@types/styled-components": "^5.1.26",
-    "gh-pages": "^6.3.0"
+    "@types/styled-components": "^5.1.26"
   }
 }
