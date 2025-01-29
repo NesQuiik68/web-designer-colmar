@@ -1,20 +1,20 @@
-name: IONOS Deploy Now
+name: Deploy to IONOS
 
 on:
-  - push
-  - workflow_dispatch
-
-env:
-  IONOS_API_KEY: ${{ secrets.IONOS_API_KEY }}
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
-  deploy-to-ionos:
+  build-and-deploy:
     runs-on: ubuntu-latest
+    environment: Production
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
@@ -25,13 +25,15 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          CI: false
 
       - name: Deploy to IONOS
         uses: ionos-deploy-now/deploy-to-ionos-action@v2
         with:
-          api-key: ${{ secrets.IONOS_API_KEY }}
           service-host: api-eu.ionos.space
+          api-key: ${{ secrets.IONOS_API_KEY }}
           project-id: ${{ secrets.IONOS_PROJECT_ID }}
           branch-id: ${{ secrets.IONOS_BRANCH_ID }}
-          deployment-name: ${{ github.sha }}
-          folder: build
+          deployment-folder: build
+          workspace: ${{ github.workspace }}
