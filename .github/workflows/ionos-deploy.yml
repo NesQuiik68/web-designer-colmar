@@ -1,4 +1,4 @@
-name: Deploy to IONOS
+name: Deploy Now
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  deploy-to-ionos:
     runs-on: ubuntu-latest
     environment: Production
     steps:
@@ -29,8 +29,9 @@ jobs:
           CI: false
 
       - name: Deploy to IONOS
-        uses: ionos-deploy-now/deploy-to-ionos-action@v2
+        uses: ionos-deploy-now/deploy-to-ionos@v1
         with:
-          service-host: api-eu.ionos.space
-          deployment-folder: build
-          workspace: https://github.com/NesQuiik68/web-designer-colmar
+          dist-folder: build
+          project: web-designer-colmar
+          storage-quota: 10GB
+          branch: main
