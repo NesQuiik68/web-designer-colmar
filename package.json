@@ -3,6 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "homepage": "https://nesquiik68.github.io/web-designer-colmar",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
   "dependencies": {
     "@dotlottie/react-player": "^1.6.19",
     "@emailjs/browser": "^4.4.1",
@@ -36,14 +44,6 @@
     "typed.js": "^2.1.0",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
