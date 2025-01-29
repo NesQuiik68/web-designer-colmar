@@ -1,0 +1,35 @@
+name: Deploy Now
+
+on:
+  - push
+  - workflow_dispatch
+
+jobs:
+  deploy-to-ionos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          CI: false
+
+      - name: Deploy to IONOS
+        if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
+        uses: ionos-deploy-now/deploy-to-ionos-action@v1
+        with:
+          dist-folder: build
+          project: web-designer-colmar
+          storage-quota: 10GB
+          branch: main
