@@ -29,7 +29,7 @@ jobs:
           CI: false
 
       - name: Deploy to IONOS
-        uses: ionos-deploy-now/deploy-to-ionos@v1
+        uses: ionos-deploy-now/deploy-to-ionos-action@v2
         with:
           dist-folder: build
           project: web-designer-colmar
