@@ -2,6 +2,7 @@
   "name": "web-designer-colmar",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://nesquiik68.github.io/web-designer-colmar",
   "dependencies": {
     "@dotlottie/react-player": "^1.6.19",
     "@emailjs/browser": "^4.4.1",
